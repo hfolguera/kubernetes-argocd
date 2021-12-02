@@ -1,0 +1,8 @@
+*.old
+*.bck
+password
+*.swp
+*.tmp
+argocd-linux-amd64
+argocd-darwin-amd64
+argocd-windows-amd64
