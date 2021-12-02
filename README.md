@@ -1,4 +1,4 @@
-# kubernetes-shinobi
+# kubernetes-argocd
 This repository deploys an ArgoCD instance in a kubernetes cluster.
 
 ## Installation
@@ -33,7 +33,9 @@ ln -s $PWD/argocd-linux-amd64 /usr/bin/argocd
 ```
 
 ### 5. Create an ArgoCD Application
-Once your installation is Up&Running, now you can start deploying your apps. You can follow the official documentation to deploy a test application:
+Once your installation is Up&Running, now you can start deploying your apps. 
+
+You can follow the official documentation to deploy a test application:
 https://argo-cd.readthedocs.io/en/stable/getting_started/#6-create-an-application-from-a-git-repository
 
 ## References
