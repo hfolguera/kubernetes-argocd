@@ -8,11 +8,17 @@ kubectl apply -f argocd-namespace.yaml
 ```
 
 ### 2. Create the ArgoCD artifacts
+Download the last version of the installation yaml from:
 ```
-kubectl apply -f install.yaml
+wget https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
 ```
 
 Note that argocd-server service has been updated to be LoadBalancer type and uses custom metallb annotation. Please, update it as you need.
+
+Deploy the ArgoCD artifacts with:
+```
+kubectl apply -f install.yaml
+```
 
 ### 3. Access the UI as superuser
 Connect to your ArgoCD instance following your network configuration.
