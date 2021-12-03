@@ -38,18 +38,31 @@ chmod +x argocd-linux-amd64
 ln -s $PWD/argocd-linux-amd64 /usr/bin/argocd
 ```
 
+### 5. Create an ArgoCD Project
+In order to structure your k8s deployments, create an specific project for your needs.
+
+You can navigate the UI to create it or use a declarative file. I have an example in `projects` directory:
+```
+kubectl apply -f projects/calfolguera-project.yaml
+```
+
 ### 5. Create an ArgoCD Application
 Once your installation is Up&Running, now you can start deploying your apps. 
 
 You can follow the official documentation to deploy a test application:
 https://argo-cd.readthedocs.io/en/stable/getting_started/#6-create-an-application-from-a-git-repository
 
+
+Applications can be defined in a declarative way as yaml files. I have some examples in `applications` directory:
+```
+kubectl apply -f applications/grafana-application.yaml
+```
+
 ## References
 Get the official documentation at https://argo-cd.readthedocs.io/en/stable/getting_started/
 
 ## Next steps
 * Add Persistent storage
-* Configuration as code
 
 ## Known Issues
 TODO

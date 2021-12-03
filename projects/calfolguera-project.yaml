@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: calfolguera
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: "Project for homelab testing purposes"
+  sourceRepos:
+  - "*"
+  destinations:
+  - namespace: "*"
+    server: "https://kubernetes.default.svc"
