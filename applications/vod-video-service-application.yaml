@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: vod
   source:
-    path: .
+    path: kubernetes
     repoURL: https://github.com/hfolguera/vod-video-service.git
     targetRevision: HEAD
   syncPolicy:
