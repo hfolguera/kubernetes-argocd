@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: metallb
-  namespace: metallb-system
+  namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -18,3 +18,8 @@ spec:
     automated:
       prune: true
       selfHeal: true
+  ignoreDifferences:
+  - kind: CustomResourceDefinition
+    group: apiextensions.k8s.io
+    jsonPointers:
+      - /spec/conversion/webhook/clientConfig/caBundle
