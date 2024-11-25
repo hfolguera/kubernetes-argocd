@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: goldengate
+  namespace: goldengate
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: goldengate
+    server: https://kubernetes.default.svc
+  project: calfolguera
+  source:
+    path: .
+    repoURL: https://github.com/hfolguera/kubernetes-goldengate.git
+    targetRevision: HEAD
+  syncPolicy: {}
