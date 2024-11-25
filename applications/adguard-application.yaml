@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: adguard
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: adguard
+    server: https://kubernetes.default.svc
+  project: calfolguera
+  source:
+    path: .
+    repoURL: https://github.com/hfolguera/kubernetes-adguard.git
+    targetRevision: HEAD
+  syncPolicy: {}
