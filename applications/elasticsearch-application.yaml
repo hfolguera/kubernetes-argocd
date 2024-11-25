@@ -14,8 +14,4 @@ spec:
     path: .
     repoURL: https://github.com/hfolguera/kubernetes-elasticsearch.git
     targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-
+  syncPolicy: {}

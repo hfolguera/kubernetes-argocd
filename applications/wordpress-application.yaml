@@ -14,7 +14,4 @@ spec:
     path: .
     repoURL: https://github.com/hfolguera/kubernetes-wordpress.git
     targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  syncPolicy: {}

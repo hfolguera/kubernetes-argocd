@@ -14,7 +14,4 @@ spec:
     path: .
     repoURL: https://github.com/hfolguera/kubernetes-gethomepage.git
     targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  syncPolicy: {}
