@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: uptimekuma
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: uptimekuma
+    server: https://kubernetes.default.svc
+  project: calfolguera
+  source:
+    path: .
+    repoURL: https://github.com/hfolguera/kubernetes-uptimekuma.git
+    targetRevision: HEAD
+  syncPolicy: {}
