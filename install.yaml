@@ -21091,6 +21091,22 @@ metadata:
     app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
   name: argocd-cm
+data:
+  url: https://argocd.calfolguera.freemyip.com
+  dex.config: |
+      connectors:
+      - config:
+          issuer: https://authentik.calfolguera.freemyip.com/application/o/argocd/
+          clientID: iapUQERa1r4ypiGVa6DI4lakI7oVqhOxTXGBBA1Y
+          clientSecret: $dex.authentik.clientSecret
+          insecureEnableGroups: true
+          scopes:
+            - openid
+            - profile
+            - email
+        name: authentik
+        type: oidc
+        id: authentik
 ---
 apiVersion: v1
 kind: ConfigMap

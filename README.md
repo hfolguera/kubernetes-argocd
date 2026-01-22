@@ -11,7 +11,6 @@ kubectl apply -f argocd-namespace.yaml
 Download the last version of the installation yaml from:
 ```
 wget https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-
 ```
 
 Note that argocd-server service has been updated to be LoadBalancer type and uses custom metallb annotation. Please, update it as you need.
@@ -58,6 +57,41 @@ Applications can be defined in a declarative way as yaml files. I have some exam
 ```
 kubectl apply -f applications/grafana-application.yaml
 ```
+
+## Authentik configuration
+To enable Authentik OAuth configuration, execute the following commands:
+
+Edit the `argocd-secret` secret and add the following value to the data field:
+```
+    dex.authentik.clientSecret: <base 64 encoded value of the Client Secret from the Provider above>
+```
+
+Edit the `argocd-cm` configmap and add the following value to the data field:
+```
+url: https://argocd.company
+dex.config: |
+    connectors:
+    - config:
+        issuer: https://authentik.company/application/o/<application_slug>/
+        clientID: <client ID from the Provider above>
+        clientSecret: $dex.authentik.clientSecret
+        insecureEnableGroups: true
+        scopes:
+          - openid
+          - profile
+          - email
+      name: authentik
+      type: oidc
+      id: authentik
+```
+
+Edit the `argocd-rbac-cm` ConfigMap, add the following to the data field:
+```
+policy.csv: |
+    g, homelab-admins, role:admin
+```
+
+To apply changes on configuration, delete all the argocd pods and they will be recreated automatically by the deployment.
 
 ## References
 Get the official documentation at https://argo-cd.readthedocs.io/en/stable/getting_started/
