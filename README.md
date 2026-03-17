@@ -93,6 +93,16 @@ policy.csv: |
 
 To apply changes on configuration, delete all the argocd pods and they will be recreated automatically by the deployment.
 
+## Upgrade
+To upgrade ArgoCD, follow the instructions of latest release:
+[ArgoCD Releases](https://github.com/argoproj/argo-cd/releases)
+
+Example, for v3.3.2:
+```
+wget https://raw.githubusercontent.com/argoproj/argo-cd/v3.3.2/manifests/install.yaml
+kubectl apply -f install.yaml -n argocd
+```
+
 ## References
 Get the official documentation at https://argo-cd.readthedocs.io/en/stable/getting_started/
 

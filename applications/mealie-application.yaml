@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: mealie
   namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: mealie

@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: oracle23ai
   namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: oracle
