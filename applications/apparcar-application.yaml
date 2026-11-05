@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apparcar
+  namespace: argocd
+spec:
+  destination:
+    namespace: apparcar
+    server: https://kubernetes.default.svc
+  project: apparcar
+  source:
+    path: k8s
+    repoURL: git@github.com:hfolguera/AppArCar.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
